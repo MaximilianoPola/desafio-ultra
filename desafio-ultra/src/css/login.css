@@ -27,4 +27,22 @@ section{
                 -20px -20px 60px #ffffff;
     text-align: center;
   }
-  
+  .login-title{
+    font-size: 2rem;
+    margin-bottom: .5em;
+  }
+  .login-paragraph{
+    font-weight: 300;
+  }
+  .login-paragraph a{
+    font-weight: 400;
+    color: #000000;
+  }
+  .login-container{
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+  }
+  .login-group{
+    position: relative;
+  }
