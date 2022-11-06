@@ -11,9 +11,13 @@ class Login extends Component {
 
     inputChange = async e=>{
         await this.setState({
-            ...this.state.form,
-            [e.target.name]: e.target.value
+            form:{
+              ...this.state.form,
+            [e.target.name]: e.target.value  
+            }
+            
         })
+        console.log(this.state.form);
     }
 
     render(){
