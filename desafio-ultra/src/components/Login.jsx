@@ -1,29 +1,47 @@
-import React, {Component} from "react";
+import React, { Component, useEffect, useState} from "react";
 import '../css/login.css'
+import axios from 'axios'
+
+
 
 class Login extends Component {
+
+    //Estado para capturar el change de los input del formulario
     state={
         form:{
-            name:'',
-            pwd:''
-        }
+            'name':'',
+            'pwd':''
+        },
+        error:false,
+        errorMsg:''
     }
 
-    inputChange = async e=>{
+    handleSubmit = e =>{
+        e.preventDefault()
+    }
+
+    inputChange = async e =>{
         await this.setState({
             form:{
-              ...this.state.form,
-            [e.target.name]: e.target.value  
+                ...this.state.form,
+                [e.target.name] : e.target.value
             }
-            
         })
-        console.log(this.state.form);
+        // console.log(this.state.form);
+    }
+    //Consumo de api con axios
+    handleButton=()=>{
+       const apiUser= 'https://635fe51f3e8f65f283be4b05.mockapi.io/users'
+       axios.post(apiUser,this.state.form)
+       .then(response=>{
+        console.log(response)
+       })
     }
 
     render(){
         return (
             <section>
-                <form action="" className="login">
+                <form onSubmit={this.handleSubmit} className="login">
                     <h1 className="login-title">LOG IN</h1> 
                     <p className="login-paragraph">¿Aún no tienes cuenta? <a href="/">Registrate!</a></p>
                         <div className="login-container">
@@ -39,15 +57,13 @@ class Login extends Component {
                                 <label htmlFor="" className="login-label">Recordar usuario</label>  
                                 <input type="checkbox" name="remember" id="remember" className="login-input"/>
                             </div>
-                                <button type="submit" className="login-submit">Ingresar</button>  
+                                <button type="submit" className="login-submit" onClick={this.handleButton}>Ingresar</button>  
                         </div>        
                 </form>
             </section>
-        );
+        ); 
     }
-        
-    
-    
+                       
 }
   
   export default Login
