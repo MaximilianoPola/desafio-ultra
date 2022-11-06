@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+
+h1{
+    text-align: center;
+    padding: .5em .2em;
+    background-color: rgba(199, 191, 191, 70%);
+}
+.transaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(199, 191, 191, 70%);
+}
+.responsive{
+    width: 95%;
+    min-height: 100vh;
+}
+.rdt_TableCol{
+    background-color: rgba(147, 53, 141, 77%);
+    min-width: 100vh;
+}
+.rdt_TableCell{
+    background-image:  radial-gradient(#93358d 0.5px, transparent 0.5px), radial-gradient(#93358d 0.5px, #e5e5f7 0.5px);
+    min-width: 100vh;
+}
+.rdt_TableCol_Sortable{
+   
+    color: #FCE521
+}
+.rdt_TableHeadRow{
+    background-color: black;
+    
+}
+.rdt_TableRow{
+    color: black;
+    min-height: 100vh;
+}
+.rdt_TableRow:hover{
+    border: solid 2px #FCE521;
+}
+.rdt_Table{
+    border: solid 1px black ; 
+    border-radius: 5px;
+    margin: 10px;
+}
+.rdt_ExpanderRow{
+    background-color: rgba(199, 191, 191, 70%);
+}
+.buscar{
+    width: 25%;
+    font-weight: 300;
+    border-radius: 7px;
+    border-color: #93358d;
+}
+/* buscador */
+/* .buscar:hover{
+    
+    background-image:  radial-gradient(#93358d 0.5px, transparent 0.5px), radial-gradient(#93358d 0.5px, #e5e5f7 0.5px);
+} */
+.rdt_TableHeader{
+    background-color: rgba(199, 191, 191, 70%);
+}
+
+    
