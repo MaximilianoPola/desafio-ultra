@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from "react";
-import DataTable,{createTheme} from 'react-data-table-component';
+import DataTable from 'react-data-table-component';
 import 'styled-components'
+import '../css/transaction.css'
 
 function Transaction () {
 
@@ -20,31 +21,52 @@ function Transaction () {
         mostrarDatos()
     }, [])
 
+    //Configuracion de columnas
     const columns = [
 
         {
             name: 'NUMERO DE OPERACION',
-            selector: row => row.id
+            selector: row => row.id,
+            
+        },
+        {
+            name: 'FECHA',
+            selector: row => row.createdAt,
+            
         },
         {
             name: 'MONTO',
-            selector: row => row.amount
+            selector: (row) => <p >$ {row.amount}</p>
         },
         {
             name: 'DESCRIPCION',
-            selector: row => row.description
+            selector: row => row.description,
+            grow: 3
         }
     ]
 
+    // const paginacion = {
+    //     rowsPerPageText: 'Filas por página',
+    //     rangeSeparatorText: 'de',
+    //     selectAllRowsItem: true,
+    //     selectAllRowsItemText: 'Todos'
+    // }
 
     return(
-        <div>
-            <h1>Actividad</h1>
+        <div className="transaction">
+            <div className="responsive">
+               <h1>Actividad Reciente</h1>
 
-            <DataTable 
-            columns ={columns}
-            data ={transactions}
-            />
+                <DataTable 
+                className="dataTable"
+                columns ={columns}
+                data ={transactions}
+                // pagination
+                // paginationComponent={paginacion}
+                // fixedHeaderScrollHeight
+                /> 
+            </div>
+            
         </div>
     )
 }
