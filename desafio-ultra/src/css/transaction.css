@@ -18,14 +18,13 @@ h1{
 }
 .rdt_TableCol{
     background-color: rgba(147, 53, 141, 77%);
-    min-width: 100vh;
+    
 }
 .rdt_TableCell{
     background-image:  radial-gradient(#93358d 0.5px, transparent 0.5px), radial-gradient(#93358d 0.5px, #e5e5f7 0.5px);
-    min-width: 100vh;
+    
 }
 .rdt_TableCol_Sortable{
-   
     color: #FCE521
 }
 .rdt_TableHeadRow{
@@ -53,13 +52,9 @@ h1{
     border-radius: 7px;
     border-color: #93358d;
 }
-/* buscador */
-/* .buscar:hover{
-    
-    background-image:  radial-gradient(#93358d 0.5px, transparent 0.5px), radial-gradient(#93358d 0.5px, #e5e5f7 0.5px);
-} */
 .rdt_TableHeader{
     background-color: rgba(199, 191, 191, 70%);
 }
+
 
     
