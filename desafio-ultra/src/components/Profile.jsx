@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import Cookies from "universal-cookie";
 const cookies = new Cookies() 
 class Profile extends Component {
-    
+    //Funcion para cerrar sesión y redirigir a login
+    logout = () =>{
+        cookies.remove('name',{path: "/"})
+        cookies.remove('avatar',{path: "/"})
+        window.location.href='./'
+    }
+
     render(){
        console.log('name' + cookies.get('name'))
         return(
@@ -11,7 +17,7 @@ class Profile extends Component {
                 <img src={cookies.get('avatar')} width150px alt="" />
                 <h3>{cookies.get('name')}</h3>
                 <button>Movimientos</button>
-                <button>Cerrar sesión</button>
+                <button onClick={() => this.logout()}>Cerrar sesión</button>
             </div>
         )
     }      
