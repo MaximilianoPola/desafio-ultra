@@ -4,6 +4,7 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 
 const cookies = new Cookies();
+//Componente de clase por el momento, falta cambiarlo para poder hacer uso de hooks
 class Login extends Component {
 
     //Estado para capturar el change de los input del formulario
@@ -27,13 +28,9 @@ class Login extends Component {
                 [e.target.name] : e.target.value
             }
         })
-        // console.log(this.state.form);
     }
-    //Manipulacion de elementos del dom para mostar validaciones
     
-
-
-    //Consumo de api con axios
+    //Consumo de api con axios y comparacion de los datos del input y de api
     handleButton= async()=>{
        const apiUser= 'https://635fe51f3e8f65f283be4b05.mockapi.io/users'
        await axios.get(apiUser,{params: {name: this.state.form.name, password: this.state.form.pwd}})
@@ -53,6 +50,12 @@ class Login extends Component {
         .catch(error =>{
             console.log(error)
         })  
+    }
+    //En la renderizacion del componente, si encuentra la cookie redirige a profile
+    componentDidMount(){
+        if(cookies.get('name')){
+            window.location.href='/profile'
+        }
     }
 
     render(){
@@ -76,8 +79,7 @@ class Login extends Component {
                 </form>
             </section>
         ); 
-    }
-                       
+    }                     
 }
   
   export default Login
