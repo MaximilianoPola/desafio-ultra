@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import Cookies from "universal-cookie";
+
 const cookies = new Cookies() 
+
 class Profile extends Component {
     //Funcion para cerrar sesión y redirigir a login
     logout = () =>{
         cookies.remove('name',{path: "/"})
         cookies.remove('avatar',{path: "/"})
         window.location.href='./'
+    }
+    //En la renderizacion del componente si no encuentra la cookie redirige al login
+    componentDidMount(){
+        if(!cookies.get('name')){
+            window.location.href='/'
+        }
     }
 
     render(){
