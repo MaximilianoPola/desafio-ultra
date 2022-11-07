@@ -26,19 +26,23 @@ function Transaction () {
         {
             name: 'NUMERO DE OPERACION',
             selector: row => row.id,
+            className: 'numOperation'
         },
         {
             name: 'FECHA',
             selector: row => row.createdAt,
+            className: 'date'
         },
         {
             name: 'MONTO',
             selector: (row) => <p >$ {row.amount}</p>,
+            className: 'amount'
         },
         {
             name: 'DESCRIPCION',
             selector: row => row.description,
             grow: 3,
+            className: 'description'
         }
     ]
 
