@@ -7,41 +7,38 @@ function Transaction () {
 
     //configuramos los hooks
     const [transactions, setTransactions] = useState([])
-
+    
     //Datos de api
     const api = 'https://635fe51f3e8f65f283be4b05.mockapi.io/users/1/transactions'
     const mostrarDatos = async () => {
        const response = await fetch(api)
        const data     = await response.json() 
-       console.log(data);
        setTransactions(data)
     }
 
     useEffect( () => {
         mostrarDatos()
     }, [])
-
+    
+    
     //Configuracion de columnas
     const columns = [
-
         {
             name: 'NUMERO DE OPERACION',
             selector: row => row.id,
-            
         },
         {
             name: 'FECHA',
             selector: row => row.createdAt,
-            
         },
         {
             name: 'MONTO',
-            selector: (row) => <p >$ {row.amount}</p>
+            selector: (row) => <p >$ {row.amount}</p>,
         },
         {
             name: 'DESCRIPCION',
             selector: row => row.description,
-            grow: 3
+            grow: 3,
         }
     ]
 
@@ -61,12 +58,13 @@ function Transaction () {
                 className="dataTable"
                 columns ={columns}
                 data ={transactions}
+                fixedHeaderScrollHeight="300px"
+                responsive
                 // pagination
                 // paginationComponent={paginacion}
                 // fixedHeaderScrollHeight
                 /> 
             </div>
-            
         </div>
     )
 }
