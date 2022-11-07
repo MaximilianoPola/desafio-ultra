@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 import Cookies from "universal-cookie";
+import '../css/profile.css'
 
 const cookies = new Cookies() 
 
@@ -20,12 +22,15 @@ class Profile extends Component {
     render(){
        console.log('name' + cookies.get('name'))
         return(
-            <div>
-                <h1>Bienvenido {cookies.get('name')}</h1>
-                <img src={cookies.get('avatar')} width150px alt="" />
+            <div className="profile-box" >
+                <div className="profile-card">
+                <h1 className="profile-title">Bienvenido {cookies.get('name')}</h1>
+                <img className="profile-avatar" src={cookies.get('avatar')} width150px alt="" />
                 <h3>{cookies.get('name')}</h3>
-                <button>Movimientos</button>
-                <button onClick={() => this.logout()}>Cerrar sesión</button>
+
+                <Link to= './transaction'><button className="profile-button" >Movimientos</button> </Link>
+                <button className="profile-button" onClick={() => this.logout()}>Cerrar sesión</button>
+                </div>
             </div>
         )
     }      
